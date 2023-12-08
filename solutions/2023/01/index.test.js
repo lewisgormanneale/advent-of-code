@@ -6,11 +6,11 @@ test("part 1 example", async () => {
 });
 
 test("part 1 data", async () => {
-  expect(part1(parseInput(await getInput()))).toBe(0);
+  expect(part1(parseInput(await getInput()))).toBe(55090);
 });
 
 test("part 2 example", async () => {
-  expect(part2(parseInput(await getExampleInput()))).toBe(0);
+  expect(part2(parseInput(await getExampleInput()))).toBe(281);
 });
 
 test("part 2 data", async () => {
