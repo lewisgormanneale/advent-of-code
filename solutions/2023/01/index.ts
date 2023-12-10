@@ -1,16 +1,16 @@
 export const parseInput = (input: any) => input.split("\n");
 
-const writtenNumbers = {
-  zero: 0,
-  one: 1,
-  two: 2,
-  three: 3,
-  four: 4,
-  five: 5,
-  six: 6,
-  seven: 7,
-  eight: 8,
-  nine: 9,
+const writtenNumbers: { [key: string]: string } = {
+  zero: "0",
+  one: "1",
+  two: "2",
+  three: "3",
+  four: "4",
+  five: "5",
+  six: "6",
+  seven: "7",
+  eight: "8",
+  nine: "9",
 };
 
 const getMatchedWrittenNumber = (str: string) => {
@@ -34,9 +34,9 @@ export const part1 = (input: string[]) => {
 export const part2 = (input: string[]) => {
   let total = 0;
   input.forEach((line: string) => {
-    let firstNumber = 0;
+    let firstNumber = "";
     let firstNumberCheckedLetters = "";
-    let lastNumber = 0;
+    let lastNumber = "";
     let lastNumberCheckedLetters = "";
 
     for (let i = 0; i < line.length; i++) {
@@ -44,9 +44,9 @@ export const part2 = (input: string[]) => {
       const matchedNumber = getMatchedWrittenNumber(firstNumberCheckedLetters);
       if (matchedNumber) {
         firstNumber = writtenNumbers[matchedNumber];
+        console.log(firstNumber);
         break;
-      }
-      if (!isNaN(line[i])) {
+      } else if (!isNaN(Number(line[i]))) {
         firstNumber = line[i];
         break;
       }
@@ -55,7 +55,7 @@ export const part2 = (input: string[]) => {
     for (let i = line.length - 1; i >= 0; i--) {
       lastNumberCheckedLetters = line[i] + lastNumberCheckedLetters;
       const matchedNumber = getMatchedWrittenNumber(lastNumberCheckedLetters);
-      if (!isNaN(line[i])) {
+      if (!isNaN(Number(line[i]))) {
         lastNumber = line[i];
         break;
       }
@@ -65,7 +65,9 @@ export const part2 = (input: string[]) => {
       }
     }
 
-    total += parseInt(firstNumber + "" + lastNumber);
+    total += parseInt(firstNumber + lastNumber);
+    console.log(total);
   });
+
   return total;
 };
