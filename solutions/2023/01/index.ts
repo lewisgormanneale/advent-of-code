@@ -1,4 +1,4 @@
-export const parseInput = (input) => input.split("\n");
+export const parseInput = (input: any) => input.split("\n");
 
 const writtenNumbers = {
   zero: 0,
@@ -13,38 +13,27 @@ const writtenNumbers = {
   nine: 9,
 };
 
-const getMatchedWrittenNumber = (str) => {
+const getMatchedWrittenNumber = (str: string) => {
   const matchedWord = Object.keys(writtenNumbers).find((word) =>
     str.includes(word)
   );
   return matchedWord ? matchedWord : null;
 };
 
-export const part1 = (input) => {
+export const part1 = (input: string[]) => {
   let total = 0;
-  input.forEach((line) => {
-    let firstNumber = 0;
-    let lastNumber = 0;
-    for (let i = 0; i < line.length; i++) {
-      if (!isNaN(line[i])) {
-        firstNumber = line[i];
-        break;
-      }
-    }
-    for (let i = line.length - 1; i >= 0; i--) {
-      if (!isNaN(line[i])) {
-        lastNumber = line[i];
-        break;
-      }
-    }
-    total += parseInt(firstNumber + lastNumber);
+  input.forEach((line: string) => {
+    const numbers = line.match(/\d/g);
+    numbers
+      ? (total += parseInt(numbers[0] + numbers[numbers.length - 1]))
+      : (total += 0);
   });
   return total;
 };
 
-export const part2 = (input) => {
+export const part2 = (input: string[]) => {
   let total = 0;
-  input.forEach((line) => {
+  input.forEach((line: string) => {
     let firstNumber = 0;
     let firstNumberCheckedLetters = "";
     let lastNumber = 0;

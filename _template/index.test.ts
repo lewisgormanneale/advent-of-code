@@ -1,5 +1,6 @@
-import { parseInput, part1, part2 } from "./index.js";
-import { getInput } from "../../../lib";
+import { parseInput, part1, part2 } from "./index";
+// @ts-ignore
+import { getInput } from "../../../lib.ts";
 
 test("part 1 example", async () => {
   expect(
