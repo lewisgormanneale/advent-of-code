@@ -43,5 +43,40 @@ export const part1 = (input: string[]) => {
 };
 
 export const part2 = (input: string[]) => {
-  return;
+  let total = 0;
+
+  input.forEach((line: string) => {
+    let minimumRed = 0;
+    let minimumGreen = 0;
+    let minimumBlue = 0;
+
+    const rounds = line.match(/(\d+\s\w+(?:,\s\d+\s\w+)*)/g);
+    if (rounds) {
+      for (let i = 0; i < rounds.length; i++) {
+        const values = rounds[i].split(/,\s|\s/);
+        for (let i = 0; i < values.length; i += 2) {
+          switch (values[i + 1]) {
+            case "red":
+              if (parseInt(values[i]) > minimumRed) {
+                minimumRed = parseInt(values[i]);
+              }
+              break;
+            case "green":
+              if (parseInt(values[i]) > minimumGreen) {
+                minimumGreen = parseInt(values[i]);
+              }
+              break;
+            case "blue":
+              if (parseInt(values[i]) > minimumBlue) {
+                minimumBlue = parseInt(values[i]);
+              }
+              break;
+          }
+        }
+      }
+      total += minimumRed * minimumGreen * minimumBlue;
+    }
+  });
+
+  return total;
 };

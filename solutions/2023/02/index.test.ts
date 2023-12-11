@@ -41,7 +41,7 @@ test("part 2 example", async () => {
         })
       )
     )
-  ).toBe(0);
+  ).toBe(2286);
 });
 
 test("part 2 data", async () => {
@@ -55,5 +55,5 @@ test("part 2 data", async () => {
         })
       )
     )
-  ).toBe(0);
+  ).toBe(63700);
 });
