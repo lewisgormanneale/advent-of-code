@@ -13,7 +13,7 @@ test("part 1 example", async () => {
         })
       )
     )
-  ).toBe(0);
+  ).toBe(8);
 });
 
 test("part 1 data", async () => {
@@ -27,7 +27,7 @@ test("part 1 data", async () => {
         })
       )
     )
-  ).toBe(0);
+  ).toBe(2176);
 });
 
 test("part 2 example", async () => {
