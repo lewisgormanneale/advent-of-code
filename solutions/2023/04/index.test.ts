@@ -27,33 +27,33 @@ test("part 1 data", async () => {
         })
       )
     )
-  ).toBe(0);
+  ).toBe(21959);
 });
 
-// test("part 2 example", async () => {
-//   expect(
-//     part2(
-//       parseInput(
-//         await getInput({
-//           year: "2023",
-//           day: "04",
-//           fileName: "example",
-//         })
-//       )
-//     )
-//   ).toBe(0);
-// });
+test("part 2 example", async () => {
+  expect(
+    part2(
+      parseInput(
+        await getInput({
+          year: "2023",
+          day: "04",
+          fileName: "example",
+        })
+      )
+    )
+  ).toBe(30);
+});
 
-// test("part 2 data", async () => {
-//   expect(
-//     part2(
-//       parseInput(
-//         await getInput({
-//           year: "2023",
-//           day: "04",
-//           fileName: "input",
-//         })
-//       )
-//     )
-//   ).toBe(0);
-// });
+test("part 2 data", async () => {
+  expect(
+    part2(
+      parseInput(
+        await getInput({
+          year: "2023",
+          day: "04",
+          fileName: "input",
+        })
+      )
+    )
+  ).toBe(5132675);
+});
