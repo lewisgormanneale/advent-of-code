@@ -1,0 +1,24 @@
+export const parseInput = (input: any) => input.split("\n");
+
+export const part1 = (input: string[]) => {
+  let total = 0;
+  input.forEach((line: string) => {
+    if (!line.includes(":")) return;
+    const numbers = line.split(":")[1];
+    const [winningNumbers, heldNumbers] = numbers
+      .split("|")
+      .map((s) => s.split(" ").filter(Boolean).map(Number));
+    let score = 0;
+    winningNumbers.forEach((number) => {
+      if (heldNumbers.includes(number)) {
+        score === 0 ? ++score : (score *= 2);
+      }
+    });
+    total += score;
+  });
+  return total;
+};
+
+export const part2 = (input: string[]) => {
+  return;
+};
